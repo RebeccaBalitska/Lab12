@@ -1,0 +1,41 @@
+class Matrix:
+    def __init__(self):
+        self.dimension = [0, 0]
+        self.matrix = []
+
+    def __getitem__(self, id):
+        return self.matrix[id]
+
+    @property
+    def max(self):
+        list_of_max = []
+        for i in self.matrix:
+            list_of_max.append(max(i))
+        return max(list_of_max)
+
+    @property
+    def min(self):
+        list_of_min = []
+        for i in self.matrix:
+            list_of_min.append(min(i))
+        return min(list_of_min)
+
+    def show(self):
+        print("-" * 5 + " Matrix " + "-" * 5)
+        for rd in self.matrix:
+            for el in rd:
+                print(el, end = ' ')
+            print()
+        print("-" * 18)
+
+    def enter(self):
+        n = int(input("Введіть кількість рядків: "))
+        m = int(input("Введіть кількість стовпців: "))
+
+        self.dimension = [n, m]
+
+        for rd in range(n):
+            rd_els = []
+            for el in range(m):
+                rd_els.append(float(input(f"Введіть елемент з індексами {rd} і {el}:")))
+            self.matrix.append(rd_els)
