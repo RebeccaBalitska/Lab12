@@ -1,0 +1,22 @@
+class TAngle:
+    def __init__(self, angle):
+        if angle >= 0:
+            self.__angle = angle
+        else:
+            raise Exception('Angle should be positive')
+
+    @property
+    def angle(self):
+        return self.__angle
+
+    def __add__(self, other):
+        if other >= 0:
+            self.__angle += (other * 57.32)
+        else:
+            raise Exception('Angle should be positive')
+
+    def __sub__(self, other):
+        if other >= 0:
+            self.__angle -= (other * 57.32)
+        else:
+            raise Exception('Angle should be positive')
